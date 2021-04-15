@@ -1,0 +1,25 @@
+{
+    "name": "hamworks/block-editor-custom-field-sample",
+    "description": "",
+    "type": "wordpress-plugin",
+    "autoload": {
+        "psr-4": {
+            "HAMWORKS\\Block_Editor_Custom_Field_Sample\\": "includes"
+        }
+    },
+    "require-dev": {
+        "dealerdirect/phpcodesniffer-composer-installer": "*",
+        "phpcompatibility/phpcompatibility-wp": "*",
+        "squizlabs/php_codesniffer": "*",
+        "wp-coding-standards/wpcs": "*"
+    },
+    "scripts": {
+        "format": "phpcbf --standard=./.phpcs.xml.dist --report-summary --report-source",
+        "lint": "phpcs --standard=./.phpcs.xml.dist",
+        "phpcs": "phpcs --standard=./.phpcs.xml.dist"
+    },
+    "require": {
+        "php": ">=7.3",
+        "ext-json": "*"
+    }
+}

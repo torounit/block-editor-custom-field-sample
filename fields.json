@@ -1,0 +1,18 @@
+{
+	"meta_number": {
+		"type": "number",
+		"description": "Number",
+		"default": 0,
+		"object_subtype": "post",
+		"single": true,
+		"show_in_rest": true
+	},
+	"meta_string": {
+		"type": "string",
+		"description": "String",
+		"default": "",
+		"object_subtype": "post",
+		"single": true,
+		"show_in_rest": true
+	}
+}
