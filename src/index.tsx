@@ -4,9 +4,7 @@ import edit from './edit';
 
 Object.entries( fields ).forEach(
 	( [ key, { description, type, default: defaultValue } ] ) => {
-		const blockName = key
-		.replaceAll( '_', '-' )
-		.replace( /^-/, '' );
+		const blockName = key.replaceAll( '_', '-' ).replace( /^-/, '' );
 		const name = `block-editor-custom-field-sample/${ blockName }`;
 
 		registerBlockType( name, {

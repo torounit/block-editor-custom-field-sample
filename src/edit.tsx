@@ -9,9 +9,9 @@ import { PanelBody, TextControl } from '@wordpress/components';
 import { useRegisteredPostMeta } from './api/meta';
 import { useEffect } from '@wordpress/element';
 
-function stringTo( type: 'number', value: string): number;
-function stringTo( type: 'boolean', value: string): boolean;
-function stringTo( type: 'string', value: string): string;
+function stringTo( type: 'number', value: string ): number;
+function stringTo( type: 'boolean', value: string ): boolean;
+function stringTo( type: 'string', value: string ): string;
 function stringTo( type: string, value: string ): number | string | boolean {
 	if ( type === 'number' || type === 'integer' ) {
 		return Number( value );
@@ -32,12 +32,8 @@ const usePostMeta = () => {
 
 	const properties = useRegisteredPostMeta( postType );
 
-	return [
-		meta,
-		setMeta,
-		properties
-	]
-}
+	return [ meta, setMeta, properties ];
+};
 
 const Edit: React.FC< {
 	attributes: { metaKey: string; metaValue: unknown };
@@ -53,7 +49,7 @@ const Edit: React.FC< {
 	const block = useSelect(
 		( select ) => select( 'core/blocks' ).getBlockType( name ),
 		[ name ]
-	)
+	);
 
 	const updateMetaValue = ( newValue: string ) => {
 		const val = stringTo( block.attributes.metaValue.type, newValue );
@@ -63,15 +59,14 @@ const Edit: React.FC< {
 		}
 	};
 
-	useEffect(() => {
+	useEffect( () => {
 		// sync meta to attribute.
 		updateMetaValue( meta[ metaKey ] );
 		return () => {
 			// On remove this block, cleanup post meta.
 			updateMetaValue( '' );
 		};
-	}, [])
-
+	}, [] );
 
 	const inspectorControls = (
 		<InspectorControls>
