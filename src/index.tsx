@@ -11,6 +11,7 @@ Object.entries( fields ).forEach(
 
 		registerBlockType( name, {
 			name,
+			apiVersion: 2,
 			title: description,
 			description,
 			attributes: {
